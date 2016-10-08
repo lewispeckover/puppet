@@ -16,5 +16,6 @@ firewalld::zones:
     purge_ports: true
 firewalld::services:
   ssh:
+    service: ssh
     zone: public
     ensure: present
