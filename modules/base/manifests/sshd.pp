@@ -5,7 +5,7 @@ class base::sshd {
       "set PermitRootLogin no",
       "set PasswordAuthentication no",
     ],
-    require => [Class[Base::Users], Class[Base::Sudoers]],
+    require => [Class[base::users], Class[base::sudoers]],
   } ~>
   service { "sshd": 
     require => Augeas["sshd_config"],
