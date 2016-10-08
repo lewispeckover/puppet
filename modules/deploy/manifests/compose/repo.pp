@@ -1,4 +1,4 @@
-define compose::repo ($branch=hiera(deploy::compose::environment, 'master')) {
+define deploy::compose::repo ($branch=hiera(deploy::compose::environment, 'master')) {
   file { "/etc/docker/compose/$name":
     purge => false,
     recurse => false,
