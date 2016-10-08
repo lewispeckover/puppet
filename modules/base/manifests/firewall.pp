@@ -4,15 +4,7 @@ class base::firewall {
       class { 'firewalld': }
     }
     else {
-      # legacy iptables
-      include ::firewall
-      class { ['base::firewall::iptables::pre', 'base::firewall::iptables::post']: }
-      Firewall {
-        before  => [Class['base::firewall::iptables::post'], Resources['firewall']],
-        require => Class['base::firewall::iptables::pre'],
-      }
-      resources { '::firewall': purge => hiera('firewall::purge', true) }
-      create_resources('::firewall', hiera_hash('firewall', {}))
+      notify { "Firewall is only implemented for firewalld stuff, you should probably fix that": }
     }
   }
 }
