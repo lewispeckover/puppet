@@ -13,7 +13,7 @@ class deploy::compose($repos, $environment='master', $source='https://github.com
   }
 
 
-  define repo ($branch=hiera(deploy::compose::environment, 'master')) {
+  define compose::repo ($branch=hiera(deploy::compose::environment, 'master')) {
     file { "/etc/docker/compose/$name": 
       purge => false,
       recurse => false,
