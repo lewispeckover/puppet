@@ -12,4 +12,4 @@ if [ "$1" == "-u" ]; then
 	git submodule update --init --recursive
 	shift
 fi
-puppet apply . ${*,1}
+/opt/puppetlabs/bin/puppet apply . ${*,1}
