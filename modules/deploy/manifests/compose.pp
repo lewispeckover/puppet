@@ -54,5 +54,5 @@ class deploy::compose($repos, $environment='master', $source='https://github.com
       require => File["/etc/docker/compose/$name/.git"],
     }
   }
-  repo { $repos: }
+  compose::repo { $repos: }
 }
