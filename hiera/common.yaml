@@ -1,2 +1,20 @@
 classes:
   base
+docker::networks:
+  web:
+    ensure: present
+  db:
+    ensure: present
+packages:
+  bash-completion: present
+firewalld::zones:
+  public:
+    ensure: present
+    target: '%%REJECT%%'
+    purge_rich_rules: true
+    purge_services: true
+    purge_ports: true
+firewalld::services:
+  ssh:
+    zone: public
+    ensure: present
