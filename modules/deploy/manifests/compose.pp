@@ -10,6 +10,6 @@ class deploy::compose($repos, $environment='master', $source='https://github.com
     recurse => true,
     force => true,
     require => Package["docker"],
-
-    compose::repo { $repos: }
+  } ->
+  compose::repo { $repos: }
 }
