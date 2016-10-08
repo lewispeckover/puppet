@@ -11,5 +11,5 @@ class deploy::compose($repos, $environment='master', $source='https://github.com
     force => true,
     require => Package["docker"],
   } ->
-  compose::repo { $repos: }
+  deploy::compose::repo { $repos: }
 }
